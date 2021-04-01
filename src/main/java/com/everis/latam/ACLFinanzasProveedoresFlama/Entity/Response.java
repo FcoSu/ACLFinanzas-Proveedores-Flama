@@ -17,4 +17,3 @@ public class Response {
 	int idSolicitud;
 }
 
-}
