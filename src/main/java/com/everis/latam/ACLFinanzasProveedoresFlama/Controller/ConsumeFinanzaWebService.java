@@ -54,8 +54,11 @@ public class ConsumeFinanzaWebService {
 			headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
 			HttpEntity<RequestDto> entity = new HttpEntity<>(reqDto,headers);
 				
+			//aqui se consume el api de finanzas , la ruta esta en URLs
 			Response res = restTemplate.exchange(
 					URLs.apiURL, HttpMethod.POST, entity, Response.class).getBody();
+			
+			//aqui se devuelve al bkd el response desde el api finanzas
 			return new ResponseEntity<>(res, HttpStatus.OK);
 		} catch (Exception e) {
 			throw new BadRequestException(ExceptionPost.error);
